@@ -1,0 +1,55 @@
+Create a function to return employee salary using EmployeeID.
+Create a function to return employee name.
+Create a function to return employee department.
+Create a function to return employee city.
+Create a function to return employee age.
+Create a function to return annual salary.
+Create a function to return monthly salary from annual salary.
+Create a function to calculate employee bonus based on salary using IF...ELSE.
+Create a function to check whether an employee exists (BIT).
+Create a function to return salary status (HIGH, MEDIUM, LOW).
+Aggregate Function Problems
+Return the total number of employees.
+Return the highest salary.
+Return the lowest salary.
+Return the average salary.
+Return the total salary of all employees.
+Return the total salary of a specific department.
+Return the average salary of a specific department.
+Return the highest-paid employee's salary in a department.
+Return the lowest-paid employee's salary in a department.
+Return the employee count for a department.
+Stored Procedure Problems
+Display all employees.
+Display employees by department.
+Display employees whose salary is greater than a given amount.
+Insert a new employee.
+Update an employee's salary.
+Delete an employee by EmployeeID.
+Increase salary by a percentage.
+Increase salary by a fixed amount.
+Display employees from a given city.
+Display employees between a salary range.
+Stored Procedure + Function
+Create a function for annual salary and call it from a stored procedure.
+Create a function for bonus and display it through a stored procedure.
+Create a procedure that shows salary, bonus, and annual salary together.
+Create a procedure that uses two functions in one query.
+Create a procedure that returns employee details with salary status.
+Error Handling & Transactions
+Update salary using TRY...CATCH.
+Insert employee using TRY...CATCH.
+Transfer salary amount using BEGIN TRANSACTION, COMMIT, and ROLLBACK.
+Insert employee and log the operation in another table within one transaction.
+Roll back the transaction if salary is negative.
+Interview-Level Problems
+Procedure with an OUTPUT parameter to return employee salary.
+Procedure to return employee count using an OUTPUT parameter.
+Function to calculate income tax based on salary slabs.
+Procedure to promote an employee and increase salary.
+Procedure to return the top 3 highest-paid employees.
+Function to calculate years of experience from the joining date.
+Procedure to return employees who joined in the current year.
+Function to calculate retirement eligibility based on age.
+Procedure to update department and record the update date.
+Procedure to generate an employee salary report.
