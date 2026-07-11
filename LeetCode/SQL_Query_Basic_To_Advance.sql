@@ -103,3 +103,38 @@ JOIN products p ON oi.product_id = p.product_id;
 --SELF JOIN Employee AND Manager 
 SELECT e.name AS employee, m.name AS manager 
 FROM employee e LEFT JOIN employee m ON e.manager_id =m.employee_id;
+
+--Join With aggregation
+SELECT c.city, COUNT(o.order_id) AS total_order, SUM(o.revenue) AS total_revenue
+FROM customers c JOIN orders o ON  c.CustomerID = o.CustomerID
+GROUP BY c.City ORDER BY total_revenue DESC;
+
+--JOIN with Filter
+SELECT c.name, o.order_id, o.revenue
+FROM Customers c JOIN orders o ON c.CustomerID= o.customerID
+WHERE o.revenue > 500000 AND c.city ='Delhi';
+
+
+--FULL OUTER JOIN 
+SELECT C.name, o.order_id FROM Customers C LEFT JOIN orders o ON c.customerID = o.CustomerID
+UNION
+SELECT c.name, o.order_id FROM customers c RIGHT JOIN orders ON C.CustomerID = o.CustomerID;
+
+SELECT * FROM orders WHERE revenue > (SELECT AVG (revenue) FROM orders;
+
+SELECT * FROM Customers WHERE customer_id IN (SELECT DISTINCT customer_id FROM orders);
+
+SELECT MAX(revenue) FROM orders WHERE revenue < (SELECT MAX(revenue) FROM orders);
+
+--Orders above each city's average
+
+SELECT o.* FROM orders o
+JOIN(SELECT city, AVG(revenue) AS avg_rev FROM Orders GROUP BY City) city_avg
+ON o.city = city_avg.city WHERE o.revenue > city_avg.avg_rev;
+
+--Correlated subquery 
+SELECT * FROM orders o1 WHERE revenue > ( SELECT AVG(revenue) FROM orders o2 WHERE o2.customer_id = o1.customer_id);
+
+--EXITS
+SELECT * FROM Customers c WHERE EXISTS (
+SELECT 1 FROM orders o WHERE o.customer_id = c.CustomerID AND o.revenue > 1000000);
