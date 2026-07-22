@@ -218,3 +218,48 @@ SELECT
        Employee_Count
 FROM RankedMonths
 WHERE RN = 1;
+
+--FIND Employee Has Higher Salary Than maneger 
+SELECT Emp.EmployeeID
+       Emp.EmployeeName
+       Emp.Salary
+       Emp.ManagerID,
+       Mgr.employeeName AS ManagerName,
+       Mgr.Salary AS ManagerSalary
+       From Employee Emp
+       JOIN Employee Mgr
+       ON Emp.ManagerID= Mgr.EmployeeID 
+       Where Emp.Salary > Mgr.Salary ;
+
+
+--Find Employee Second Highest Salary 
+SELECT 
+       EmployeeID,
+       EmployeeName,
+       Salary
+FROM ( 
+       SELECT
+       EmployeeID,
+       EmployeeName,
+       DENSE_RANK()
+       OVER( ORDER BY Salary DESC)
+        AS Salary_Rank
+        FROM Employee 
+        ) As E 
+ WHERE Salary_Rank =2 ;
+
+
+ WITH SecondHighSalary AS (
+ SELECT EmployeeID,
+        EmployeeName,
+        Salary,
+        DENSE_RANK()
+        OVER(ORDER BY Salary DESC) As Salay_Rank
+        FROM Employee 
+        )
+
+SELECT EmployeeID,
+        EmployeeName,
+        Salary
+ FROM SecondHighSalary 
+WHERE Salary_Rank = 2;
